@@ -19,4 +19,8 @@ public class VehicleRepository {
         }
         return Optional.of(vehicles.get(id));
     }
+
+    public Optional<Vehicle> getVehicleByNumber(String vehicleNumber) {
+        return null;
+    }
 }

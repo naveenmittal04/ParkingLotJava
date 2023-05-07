@@ -3,13 +3,54 @@
  */
 package parkinglotjava;
 
+import parkinglotjava.controllers.TicketController;
+import parkinglotjava.dtos.IssueTicketRequestDto;
+import parkinglotjava.dtos.IssueTicketResponseDto;
+import parkinglotjava.dtos.ResponseStatus;
+import parkinglotjava.models.Ticket;
+import parkinglotjava.models.VehicleType;
+import parkinglotjava.repositories.GateRepository;
+import parkinglotjava.repositories.ParkingLotRepository;
+import parkinglotjava.repositories.TicketRepository;
+import parkinglotjava.repositories.VehicleRepository;
+import parkinglotjava.services.TicketService;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
     }
 
     public static void main(String[] args) {
+        GateRepository gateRepository = new GateRepository();
+        TicketRepository ticketRepository = new TicketRepository();
+        VehicleRepository vehicleRepository = new VehicleRepository();
+        ParkingLotRepository parkingLotRepository = new ParkingLotRepository();
+
+        TicketService ticketService = new TicketService(ticketRepository, gateRepository, parkingLotRepository,
+                vehicleRepository);
         
+        TicketController ticketController = new TicketController(ticketService);
+
+        IssueTicketRequestDto issueTicketRequestDto = new IssueTicketRequestDto(
+            1L,
+            "KA-01-HH-1234",
+            "John",
+            VehicleType.CAR
+        );
+        IssueTicketResponseDto issueTicketResponseDto = ticketController.issueTicket(issueTicketRequestDto);
+        if(issueTicketResponseDto.getStatus() == ResponseStatus.INVALID_REQUEST) {
+            System.out.println("Invalid request");
+            return;
+        }
+        if(issueTicketResponseDto.getStatus() == ResponseStatus.FAILURE) {
+            System.out.println("Failed to issue ticket");
+            return;
+        }
+        if(issueTicketResponseDto.getStatus() == ResponseStatus.SUCCESS) {
+            System.out.println("Ticket issued successfully");
+        }
+        Ticket ticket = issueTicketResponseDto.getTicket();
+
         System.out.println(new App().getGreeting());
     }
 }

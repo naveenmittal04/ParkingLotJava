@@ -1,6 +1,6 @@
 package parkinglotjava.models;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class BaseModel {
     private long id;
@@ -9,6 +9,12 @@ public class BaseModel {
 
     public BaseModel() {
         this.id = 0;
+        this.createdAt = new Date(System.currentTimeMillis());
+        this.updatedAt = new Date(System.currentTimeMillis());
+    }
+
+    public BaseModel(long id) {
+        this.id = id;
         this.createdAt = new Date(System.currentTimeMillis());
         this.updatedAt = new Date(System.currentTimeMillis());
     }

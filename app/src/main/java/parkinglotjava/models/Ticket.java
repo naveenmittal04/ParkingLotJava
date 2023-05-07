@@ -1,20 +1,22 @@
 package parkinglotjava.models;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Ticket extends BaseModel {
-    public Ticket(long id, Date createdAt, Date updatedAt, Date entryTime,
-            ParkingSlot parkingSlot, Vehicle vehicle) {
-        super(id, createdAt, updatedAt);
+    private Date entryTime;
+    private ParkingSlot parkingSlot;
+    private Vehicle vehicle;
+    private Operator operator;
+    
+    public Ticket(long id, Date entryTime,
+            ParkingSlot parkingSlot, Vehicle vehicle, Operator operator) {
+        super(id);
         this.entryTime = entryTime;
         this.parkingSlot = parkingSlot;
         this.vehicle = vehicle;
+        this.operator = operator;
     }
-    public Ticket(Date entryTime, ParkingSlot parkingSlot, Vehicle vehicle) {
-        this.entryTime = entryTime;
-        this.parkingSlot = parkingSlot;
-        this.vehicle = vehicle;
-    }
+
     public Date getEntryTime() {
         return entryTime;
     }
@@ -33,7 +35,11 @@ public class Ticket extends BaseModel {
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
     }
-    private Date entryTime;
-    private ParkingSlot parkingSlot;
-    private Vehicle vehicle;    
+    public Operator getOperator() {
+        return operator;
+    }
+    public void setOperator(Operator operator) {
+        this.operator = operator;
+    }
+        
 }

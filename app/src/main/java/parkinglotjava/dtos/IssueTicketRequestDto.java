@@ -1,21 +1,42 @@
 package parkinglotjava.dtos;
 
-import parkinglotjava.models.Vehicle;
+import parkinglotjava.models.VehicleType;
 
 public class IssueTicketRequestDto {
     private Long gateId;
-    private Vehicle vehicle;
+    private String registrationNumber;
+    private String ownerName;
+    private VehicleType vehicleType;
+
     public Long getGateId() {
         return gateId;
     }
     public void setGateId(Long gateId) {
         this.gateId = gateId;
     }
-    public Vehicle getVehicle() {
-        return vehicle;
+    public String getRegistrationNumber() {
+        return registrationNumber;
     }
-    public void setVehicle(Vehicle vehicle) {
-        this.vehicle = vehicle;
+    public void setRegistrationNumber(String registrationNumber) {
+        this.registrationNumber = registrationNumber;
+    }
+    public String getOwnerName() {
+        return ownerName;
+    }
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
+    }
+    public IssueTicketRequestDto(Long gateId, String registrationNumber, String ownerName, VehicleType vehicleType) {
+        this.gateId = gateId;
+        this.registrationNumber = registrationNumber;
+        this.ownerName = ownerName;
+        this.vehicleType = vehicleType;
+    }
+    public VehicleType getVehicleType() {
+        return vehicleType;
+    }
+    public void setVehicleType(VehicleType vehicleType) {
+        this.vehicleType = vehicleType;
     }
     
 }
