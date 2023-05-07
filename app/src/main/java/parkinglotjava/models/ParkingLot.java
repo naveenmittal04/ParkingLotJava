@@ -1,9 +1,9 @@
-package main.java.parkinglotjava.models;
+package parkinglotjava.models;
 
 import java.sql.Date;
 
-import main.java.parkinglotjava.strategies.BillCalculatorStrategy;
-import main.java.parkinglotjava.strategies.ParkingSlotAssignmentStrategy;
+import parkinglotjava.strategies.BillCalculatorStrategy;
+import parkinglotjava.strategies.ParkingSlotAssignmentStrategy;
 
 public class ParkingLot extends BaseModel {
     private String name;

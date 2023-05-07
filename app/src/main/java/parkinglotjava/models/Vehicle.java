@@ -1,4 +1,4 @@
-package main.java.parkinglotjava.models;
+package parkinglotjava.models;
 
 public class Vehicle extends BaseModel{
     private String registrationNumber;

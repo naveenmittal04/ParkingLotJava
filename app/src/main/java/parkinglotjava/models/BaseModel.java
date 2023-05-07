@@ -1,4 +1,4 @@
-package main.java.parkinglotjava.models;
+package parkinglotjava.models;
 
 import java.sql.Date;
 

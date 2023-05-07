@@ -1,9 +1,9 @@
-package main.java.parkinglotjava.models;
+package parkinglotjava.models;
 
 import java.sql.Date;
 
 public class Ticket extends BaseModel {
-    public Ticket(long id, Date createdAt, Date updatedAt, main.java.parkinglotjava.models.Date entryTime,
+    public Ticket(long id, Date createdAt, Date updatedAt, Date entryTime,
             ParkingSlot parkingSlot, Vehicle vehicle) {
         super(id, createdAt, updatedAt);
         this.entryTime = entryTime;

@@ -1,4 +1,6 @@
-package main.java.parkinglotjava.models;
+package parkinglotjava.models;
+
+import java.util.List;
 
 public class ParkingFloor extends BaseModel{
     private Integer floorNumber;

@@ -1,4 +1,4 @@
-package main.java.parkinglotjava.models;
+package parkinglotjava.models;
 
 public class Payment extends BaseModel{
     private long amount;

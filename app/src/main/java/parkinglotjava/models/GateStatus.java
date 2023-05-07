@@ -1,4 +1,4 @@
-package main.java.parkinglotjava.models;
+package parkinglotjava.models;
 
 public enum GateStatus {
     OPEN,
